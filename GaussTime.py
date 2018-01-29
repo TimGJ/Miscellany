@@ -9,7 +9,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 DAYS_PER_YEAR = 365
-SIGMA = 3600
+SIGMA = 1800
 MAX_POINTS_PER_DAY = 10
 
 times = []
