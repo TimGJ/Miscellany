@@ -15,7 +15,7 @@ MAX_POINTS_PER_DAY = 10
 times = []
 
 start = datetime.date(2017, 1, 1)
-colours = {'Seagrave': 'red', 'Athorpe': 'yellow', 'Hatfield': 'green', 'Osbrone': 'blue'}
+colours = {'Seagrave': 'red', 'Athorpe': 'yellow', 'Hatfield': 'green', 'Osborne': 'blue'}
 for d in range(DAYS_PER_YEAR):
     date = start + datetime.timedelta(days=d)
     for i in range(np.random.randint(MAX_POINTS_PER_DAY)):
@@ -26,7 +26,15 @@ df = pd.DataFrame(times)
 df['datetime'] = df['start'].astype(datetime.datetime)
 df['time'] = df['start'].dt.hour + df['start'].dt.minute/60
 fig, ax = plt.subplots()
+#ax.set_ylim([0,23])
+plt.yticks(range(24), ["{}:00".format(h) for h in range(24)])
 for house, colour in colours.items():
     df2 = df[df['colour'] == house]
     plt.plot(df2['datetime'], df2['time'], '.', color=colour)
+plt.legend(colours)
+plt.grid(which='both', linestyle=':', color='grey')
+plt.suptitle('Random event simulation')
+plt.title('\N{GREEK SMALL LETTER SIGMA} = {}'.format(SIGMA))
+plt.xlabel('Date')
+plt.ylabel('Time')
 plt.show()
