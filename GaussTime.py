@@ -15,7 +15,7 @@ MAX_POINTS_PER_DAY = 10
 times = []
 
 start = datetime.date(2017, 1, 1)
-colours = {'Seagrave': 'red', 'Athorpe': 'yellow', 'Hatfield': 'green', 'Osbrone': 'blue'}
+colours = {'Seagrave': 'red', 'Athorpe': 'yellow', 'Hatfield': 'green', 'Osborne': 'blue'}
 for d in range(DAYS_PER_YEAR):
     date = start + datetime.timedelta(days=d)
     for i in range(np.random.randint(MAX_POINTS_PER_DAY)):
